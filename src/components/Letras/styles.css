@@ -1,0 +1,12 @@
+.main-letters-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.letters-container {
+    display: flex;
+    width: 700px;
+    gap: 12px;
+    flex-wrap: wrap;    
+}
