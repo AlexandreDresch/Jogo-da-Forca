@@ -32,12 +32,12 @@ const alfabeto = [
 
 //Letras (conjunto de botões com as letras)
 
-export function Letras() {
+export function Letras({disabled}) {
   return (
     <div className="main-letters-container">
       <div className="letters-container">
         {alfabeto.map((item, index) => (
-          <Letra letter={item} key={index} />
+          <Letra letter={item} key={index} disabled={disabled} />
         ))}
       </div>
     </div>

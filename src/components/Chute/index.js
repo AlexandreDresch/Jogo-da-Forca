@@ -1,16 +1,29 @@
+import { useState } from "react";
 import "./styles.css";
 
 //Chute (input e botão de chute)
 
-export function Chute() {
+export function Chute({disabled}) {
+
+  const [ tryW, setTryW ] = useState()
+
+  function handleSubmit(event) {
+    event.preventDefault();
+  }
+
   return (
     <div className="try-container">
-      <form>
+      <form onSubmit={() => {}}>
         <label>
           Já sei a palavra!
-          <input type="text" />
+          <input 
+            type="text"
+            value={tryW}
+            disabled={disabled}
+            onChange={(e) => handleSubmit(e.target.value)}
+          />
         </label>
-        <button>Chutar</button>
+        <button type="submit" disabled={disabled}>Chutar</button>
       </form>
     </div>
   );

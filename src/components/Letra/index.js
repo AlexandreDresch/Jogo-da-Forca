@@ -1,9 +1,9 @@
 import './styles.css';
 
-export function Letra ({letter}) {
+export function Letra ({letter, disabled}) {
     return (
-        <div className='letter-container'>
-            <p>{letter}</p>
-        </div>
+        <button className={disabled ? 'letter-container-disabled' : 'letter-container-enabled'} disabled={disabled}>
+            {letter}
+        </button>
     )
 }

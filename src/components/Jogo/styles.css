@@ -9,9 +9,16 @@
     width: 400px;
 }
 
-.button-container {    
-    
+.button-word-container {   
     margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .start-button {
@@ -25,4 +32,16 @@
     font-weight: 700;
     font-size: 20px;
     color: #FFFFFF;
+}
+
+.hidden-word-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.hidden-word-container span {
+    font-size: 50px;
+    font-weight: 700;
+    font-style: normal;
 }
