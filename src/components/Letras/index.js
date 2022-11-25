@@ -1,4 +1,4 @@
-import { Letra } from "../Letra";
+import { Letra } from "./Letra";
 import "./styles.css";
 
 const alfabeto = [
@@ -32,12 +32,17 @@ const alfabeto = [
 
 //Letras (conjunto de botões com as letras)
 
-export function Letras({disabled}) {
+export function Letras({disabled, checkLetter}) {
   return (
     <div className="main-letters-container">
       <div className="letters-container">
         {alfabeto.map((item, index) => (
-          <Letra letter={item} key={index} disabled={disabled} />
+          <Letra 
+            key={index}
+            letter={item}  
+            disabled={disabled} 
+            getLetter={() => checkLetter(item)}
+          />
         ))}
       </div>
     </div>
