@@ -1,14 +1,10 @@
-import { useState } from "react";
+
 import "./styles.css";
 
-//Chute (input e botão de chute)
+export function Chute({disabled, inputValue, setInputValue, checkInputWin}) {
 
-export function Chute({disabled}) {
-
-  const [ tryW, setTryW ] = useState()
-
-  function handleSubmit(event) {
-    event.preventDefault();
+  function sendInputData(){
+    checkInputWin()
   }
 
   return (
@@ -18,12 +14,20 @@ export function Chute({disabled}) {
           Já sei a palavra!
           <input 
             type="text"
-            value={tryW}
+            value={inputValue}
             disabled={disabled}
-            onChange={(e) => handleSubmit(e.target.value)}
+            onChange={(e) => setInputValue(e.target.value)}
+            data-test='guess-input'
           />
         </label>
-        <button type="submit" disabled={disabled}>Chutar</button>
+        <button 
+          type="submit" 
+          disabled={disabled} 
+          onClick={sendInputData}
+          data-test='guess-button'
+        >
+          Chutar
+        </button>
       </form>
     </div>
   );

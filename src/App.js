@@ -12,8 +12,10 @@ export default function App() {
   const [hiddenWord, setHiddenWord] = useState([]);
   const [isDisabled, setIsDisabled] = useState(true);
   const [errors, setErrors] = useState(0);
+  const [inputValue, setInputValue] = useState('');
   const [selectedLettersArr, setSelectedLettersArr] = useState([]);
   const [resultColor, setResultColor] = useState('#000000');
+  const [endGame, setEndGame] = useState(false)
 
 
   function handleStartGame() {
@@ -23,6 +25,8 @@ export default function App() {
     setErrors(0);
     setSelectedLettersArr([]);
     setResultColor('#000000')
+    setEndGame(false)
+    setInputValue('')
     
     handleChooseWord();
   }
@@ -71,13 +75,31 @@ export default function App() {
   }
 
   function checkWin() {
-    if(hiddenWord.join('') === arrayWord.join('')) {
-      alert('Win')
+    if (arrayWord.length > 0) {
+    if(hiddenWord.join('') === arrayWord.join('') && endGame === false) {
+      console.log('Win')
       setResultColor('#27AE60')
+      setIsDisabled(true)
+    }
+    }
+  }
+
+  function checkInputWin() {
+  
+    if (inputValue.length > 0) {
+      console.log('entrou input win')
+      if (inputValue === arrayWord.join('')){
+        setHiddenWord(arrayWord)
+        setResultColor('#27AE60')
+        setIsDisabled(true)
+      } else {
+        gameOver();
+      }
     }
   }
 
   function gameOver() {
+    setEndGame(true)
     setErrors(6)
     setIsDisabled(true);
     console.log('game over')
@@ -88,6 +110,10 @@ export default function App() {
   useEffect(() => {
     checkWin()
   })
+
+  // useEffect(() => {
+  //   checkInputWin()
+  // })
 
   return (
     <div className="App">
@@ -104,6 +130,9 @@ export default function App() {
       />
       <Chute 
         disabled={isDisabled}
+        inputValue={inputValue}
+        setInputValue={setInputValue}
+        checkInputWin={checkInputWin}
       />
     </div>
   );
