@@ -120,6 +120,7 @@ export default function App() {
       <Jogo
         start={handleStartGame}
         photo={errors}
+        arrayWord={arrayWord}
         hiddenWord={hiddenWord}
         resultColor={resultColor}
       />
