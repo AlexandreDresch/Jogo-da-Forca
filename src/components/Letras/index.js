@@ -32,7 +32,7 @@ const alfabeto = [
 
 //Letras (conjunto de botões com as letras)
 
-export function Letras({disabled, checkLetter}) {
+export function Letras({disabled, checkLetter, checkUsed}) {
   return (
     <div className="main-letters-container">
       <div className="letters-container">
@@ -41,6 +41,7 @@ export function Letras({disabled, checkLetter}) {
             key={index}
             letter={item}  
             disabled={disabled} 
+            checkUsed={checkUsed}
             getLetter={() => checkLetter(item)}
           />
         ))}

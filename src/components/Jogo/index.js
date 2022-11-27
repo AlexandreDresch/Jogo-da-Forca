@@ -2,7 +2,7 @@ import "./styles.css";
 
 // Jogo (imagem da forca, botão de iniciar, palavra do jogo)
 
-export function Jogo({ start, photo, hiddenWord }) {
+export function Jogo({ start, photo, hiddenWord, resultColor }) {
 
   return (
     <div className="game-container">
@@ -23,7 +23,7 @@ export function Jogo({ start, photo, hiddenWord }) {
         {hiddenWord !== undefined && (
           <div className="hidden-word-container">
             {hiddenWord.map((letter, index) => (
-              <span key={index}>{letter}</span>
+              <span key={index} style={{color: resultColor}}>{letter.toUpperCase()}</span>
             ))}
           </div>
         )}
