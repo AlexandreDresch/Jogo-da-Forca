@@ -24,7 +24,7 @@ export function Jogo({ start, photo, hiddenWord, arrayWord, resultColor }) {
         {hiddenWord !== undefined && (
           <div className="hidden-word-container" data-test='word' data-answer={arrayWord.join('')}>
             {hiddenWord.map((letter, index) => (
-              <span key={index} style={{color: resultColor}}>{letter.toUpperCase()}</span>
+              <span key={index} style={{color: resultColor}}>{letter}</span>
             ))}
           </div>
         )}
