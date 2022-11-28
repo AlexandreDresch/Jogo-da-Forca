@@ -1,4 +1,3 @@
-
 import "./styles.css";
 
 export function Chute({disabled, inputValue, setInputValue, checkInputWin}) {
